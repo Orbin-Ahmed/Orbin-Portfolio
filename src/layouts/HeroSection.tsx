@@ -1,8 +1,9 @@
 import myImage from "@/assets/Acanto_image.png";
 import Navbar from "@/components/Navbar";
 import Button from "@/components/Button";
-import github from "@/assets/github.png";
-import linkedin from "@/assets/linkedin.png";
+import github from "@/assets/icons8-github-48.png";
+import linkedin from "@/assets/icons8-linkedin-48.png";
+import { Link } from "react-router-dom";
 
 type HeroSectionProps = {};
 
@@ -36,8 +37,19 @@ const HeroSection = ({}: HeroSectionProps) => {
             className="bg-button-primary hover:bg-button-primary-hover border-button-primary"
           />
           <div className="flex justify-center items-center mr-[-1rem]">
-            <img src={github} alt="GitHub" className="w-8 h-8 m-2 mt-0" />
-            <img src={linkedin} alt="Linkedin" className="w-8 h-8 m-2 mt-0" />
+            <Link to="https://github.com/Orbin-ahmed" target="_blank">
+              <img src={github} alt="GitHub" className="w-10 h-10 m-2 mt-0" />
+            </Link>
+            <Link
+              to="https://www.linkedin.com/in/orbin-ahmed-acanto-7632791a1/"
+              target="_blank"
+            >
+              <img
+                src={linkedin}
+                alt="Linkedin"
+                className="w-10 h-10 m-2 mt-0"
+              />
+            </Link>
           </div>
         </div>
       </div>
