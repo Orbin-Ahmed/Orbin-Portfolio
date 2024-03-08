@@ -3,21 +3,15 @@ import HText from "@/components/HText";
 import Diploma from "@/assets/diploma.png";
 import Education from "@/assets/university.png";
 import Brain from "@/assets/Brain.png";
-import useMediaQuery from "@/hooks/useMediaQuery";
 
 type ProfileProps = {};
 
 const Profile = ({}: ProfileProps) => {
-  const isAboveLargeScreen = useMediaQuery("(min-width: 1260px)");
   return (
-    <>
-      <div className="h-full w-4/5 m-auto flex items-center flex-col">
+    <section>
+      <div className="h-full w-4/5 mx-auto flex items-center flex-col">
         <HText header="About Me" subHeader="Get To Know More" />
-        <div
-          className={`flex justify-center items-center gap-8 ${
-            !isAboveLargeScreen ? "flex-col" : ""
-          }`}
-        >
+        <div className="flex justify-center items-center gap-8 md:flex-row flex-col">
           {/* illustration area */}
           <div className="basis-1/3 md:py-10 pb-0">
             <img src={Brain} alt="" className="w-96 h-auto" />
@@ -57,7 +51,7 @@ const Profile = ({}: ProfileProps) => {
           {/* content area end */}
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

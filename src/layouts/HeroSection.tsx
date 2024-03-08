@@ -9,7 +9,7 @@ type HeroSectionProps = {};
 
 const HeroSection = ({}: HeroSectionProps) => {
   return (
-    <>
+    <section>
       <Navbar />
       {/* Image and Intro section */}
       <div className="flex flex-col justify-center items-center h-screen w-full gap-8 mt-16 sm:mt-[-3rem] sm:flex-row">
@@ -53,7 +53,7 @@ const HeroSection = ({}: HeroSectionProps) => {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 
