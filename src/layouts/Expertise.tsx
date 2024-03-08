@@ -9,7 +9,7 @@ function Expertise({}: ExpertiseProps) {
     <section>
       <div className="flex items-center flex-col h-full mt-4 w-4/5 mx-auto">
         <HText header="Expertise" subHeader="Ready to Help With" />
-        <div className="flex justify-center items-center gap-8 w-full">
+        <div className="flex justify-center items-center gap-8 w-full ms:flex-row flex-col">
           <ExpertiseCard header="Web Development" skills={webSkills} />
           <ExpertiseCard
             header="Machine Learning"

@@ -26,12 +26,16 @@ const ExpertiseCard = ({ header, skills }: ExpertiseCardProps) => {
                     <img
                       src={ApprovalIcon}
                       alt="Icon"
-                      className="w-10 h-auto"
+                      className="xs:w-10 w-6 h-auto"
                     />
                   </div>
                   <div className="text-left">
-                    <p className="font-medium text-nowrap">{value.name}</p>
-                    <p className="text-sm text-primary-200">{value.level}</p>
+                    <p className="font-medium xs:text-base text-sm text-nowrap">
+                      {value.name}
+                    </p>
+                    <p className="sm:text-sm text-xs text-primary-200">
+                      {value.level}
+                    </p>
                   </div>
                 </div>
               ) : undefined
@@ -48,12 +52,16 @@ const ExpertiseCard = ({ header, skills }: ExpertiseCardProps) => {
                     <img
                       src={ApprovalIcon}
                       alt="Icon"
-                      className="w-10 h-auto"
+                      className="xs:w-10 w-6 h-auto"
                     />
                   </div>
                   <div className="text-left">
-                    <p className="font-medium text-nowrap">{value.name}</p>
-                    <p className="text-sm text-primary-200">{value.level}</p>
+                    <p className="font-medium xs:text-base text-sm text-nowrap">
+                      {value.name}
+                    </p>
+                    <p className="sm:text-sm text-xs text-primary-200">
+                      {value.level}
+                    </p>
                   </div>
                 </div>
               ) : undefined
