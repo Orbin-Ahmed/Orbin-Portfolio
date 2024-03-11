@@ -8,7 +8,7 @@ type ProfileProps = {};
 
 const Profile = ({}: ProfileProps) => {
   return (
-    <section>
+    <section id="About">
       <div className="h-full w-4/5 mx-auto flex items-center flex-col">
         <HText header="About Me" subHeader="Get To Know More" />
         <div className="flex justify-center items-center gap-8 md:flex-row flex-col">

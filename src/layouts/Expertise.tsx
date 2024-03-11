@@ -6,7 +6,7 @@ type ExpertiseProps = {};
 
 function Expertise({}: ExpertiseProps) {
   return (
-    <section>
+    <section id="Experience">
       <div className="flex items-center flex-col py-12 w-4/5 mx-auto">
         <HText header="Expertise" subHeader="Ready to Help With" />
         <div className="flex justify-center items-center gap-8 w-full ms:flex-row flex-col">

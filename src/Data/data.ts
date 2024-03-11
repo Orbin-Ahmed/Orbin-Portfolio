@@ -2,6 +2,10 @@ import makeMyMenuImg from "@/assets/Manager  Dashboard (Menu).png";
 import newsPortal from "@/assets/newsPortal.png";
 import fitnessMania from "@/assets/fitnessMania.png";
 import testTube from "@/assets/testTube.png";
+import facialExpression from "@/assets/facialExpression.png";
+import bengaliChraracter from "@/assets/bengaliChraracter.png";
+import mousePCA from "@/assets/mousePCA.png";
+import heartDataFreq from "@/assets/heartDataFreq.jpg";
 
 export interface Skill {
   name: string;
@@ -71,7 +75,7 @@ export const projectData: Project[] = [
     demoLink: "http://thedainik71arbangladesh.com/",
     codeLink: "https://github.com/Orbin-Ahmed/NewsPortal",
     details:
-      "This project This project This project This project This project is an online news portal designed to provide users with a detailed and convenient platform to access local and global news.",
+      "This project is an online news portal designed to provide users with a detailed and convenient platform to access local and global news.",
   },
   {
     id: 4,
@@ -80,5 +84,40 @@ export const projectData: Project[] = [
     codeLink: "https://github.com/Orbin-Ahmed/TestTube",
     details:
       "This project is a React and TypeScript implementation of a YouTube-like website. It focuses on replicating the functionality of the YouTube homepage.",
+  },
+  {
+    id: 5,
+    title:
+      "Health Risk Detection using Facial Expressions and Posture Analysis",
+    projectImg: facialExpression,
+    demoLink: "https://ieeexplore.ieee.org/document/9873684",
+    codeLink:
+      "https://github.com/Orbin-Ahmed/facial_expression_-_posture_detection",
+    details:
+      "This project develops a machine learning system for identifying critical health situations in real-time by combining facial expression recognition and posture analysis.",
+  },
+  {
+    id: 6,
+    title: "Bengali Handwriting Character Classification",
+    projectImg: bengaliChraracter,
+    codeLink: "https://github.com/Orbin-Ahmed/Bengali_Handwriting_Classifier",
+    details:
+      "This project tackles the challenge of recognizing handwritten Bengali characters using a Convolutional Neural Network (CNN) model.",
+  },
+  {
+    id: 7,
+    title: "In-depth Analysis of RNA Sequences in the context of mouse species",
+    projectImg: mousePCA,
+    codeLink: "https://github.com/Orbin-Ahmed/RNAseq_analysis",
+    details:
+      "This project delves into the intricate world of RNA sequencing data analysis, specifically focusing on gene expression patterns in various mouse species.",
+  },
+  {
+    id: 8,
+    title: "SVM and Linear Regression Models for Heart Disease Prediction",
+    projectImg: heartDataFreq,
+    codeLink: "https://github.com/Orbin-Ahmed/Heart_Disease_Prediction",
+    details:
+      "This project investigates the effectiveness of two machine learning models, Support Vector Machines and Linear Regression, in predicting the risk of heart disease.",
   },
 ];

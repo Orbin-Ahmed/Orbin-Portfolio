@@ -14,7 +14,7 @@ const Portfolio = ({}: ProfileProps) => {
   };
 
   return (
-    <section>
+    <section id="Projects">
       <div className="mt-4 py-4 w-4/5 mx-auto">
         <HText header="Portfolio" subHeader="My Diverse Range of Work" />
         {/* Chips Area */}

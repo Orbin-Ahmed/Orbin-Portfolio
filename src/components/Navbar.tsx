@@ -40,7 +40,7 @@ const Navbar = ({}: NavbarProps) => {
                 <li key={i}>
                   <a
                     href={`#${value}`}
-                    className="text-primary-100 hover:text-primary-hover font-normal"
+                    className="text-primary-100 hover:text-primary-hover hover:underline hover:underline-offset-8 hover:decoration-primary-hover font-normal"
                   >
                     {value}
                   </a>
