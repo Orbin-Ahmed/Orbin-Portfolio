@@ -30,7 +30,7 @@ const Profile = ({}: ProfileProps) => {
                   icon={Education}
                   header="Education"
                   subHeader="Computer Science & Engineering"
-                  title="B.Sc. Bachelor's Degree"
+                  title="B.Sc. in Computer Science & Engineering"
                 />
               </div>
               <div>

@@ -1,6 +1,7 @@
 import HeroSection from "@/layouts/HeroSection";
 import Profile from "@/layouts/Profile";
 import Expertise from "@/layouts/Expertise";
+import Portfolio from "@/layouts/Portfolio";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <HeroSection />
       <Profile />
       <Expertise />
-      <section className="h-screen"></section>
+      <Portfolio />
     </>
   );
 }

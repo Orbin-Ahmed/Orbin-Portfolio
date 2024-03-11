@@ -1,8 +1,8 @@
 import myImage from "@/assets/Acanto_image.png";
 import Navbar from "@/components/Navbar";
 import Button from "@/components/Button";
-import github from "@/assets/icons8-github-48.png";
-import linkedin from "@/assets/icons8-linkedin-48.png";
+import github from "@/assets/github.png";
+import linkedin from "@/assets/linkedin.png";
 import { Link } from "react-router-dom";
 
 type HeroSectionProps = {};
