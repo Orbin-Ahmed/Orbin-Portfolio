@@ -1,6 +1,7 @@
 import code from "@/assets/code.png";
 import live from "@/assets/pc.png";
 import { Project } from "@/Data/data";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const ProjectCard: React.FunctionComponent<Project> = ({
@@ -11,7 +12,13 @@ const ProjectCard: React.FunctionComponent<Project> = ({
   details,
 }) => {
   return (
-    <div className="border border-border-100 bg-white rounded-xl text-center">
+    <motion.div
+      className="border border-border-100 bg-white rounded-xl text-center"
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -10, opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <img src={projectImg} alt="img" className="w-full h-36 rounded-t-xl" />
       {/* card details area */}
       <div className="mt-4 md:p-4 p-2 text-justify">
@@ -36,7 +43,7 @@ const ProjectCard: React.FunctionComponent<Project> = ({
           ) : undefined}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

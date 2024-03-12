@@ -4,9 +4,16 @@ import Expertise from "@/layouts/Expertise";
 import Portfolio from "@/layouts/Portfolio";
 import { projectData } from "@/Data/data";
 import { useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 function App() {
   const [projectItem, setProjectItem] = useState(projectData);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   const filterProjectItem = (category: string) => {
     const newProjectItem = projectData.filter(
@@ -16,6 +23,7 @@ function App() {
   };
   return (
     <>
+      <motion.div className="progress-bar" style={{ scaleX }} />
       <HeroSection />
       <Profile />
       <Expertise />

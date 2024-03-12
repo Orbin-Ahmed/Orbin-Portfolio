@@ -15,22 +15,11 @@ module.exports = {
         "border-200": "#444444",
         "active-100": "#99BC85",
       },
-      backgroundImage: (theme) => ({
-        "gradient-yellowred":
-          "linear-gradient(90deg, #FF616A 0%, #FFC837 100%)",
-        "mobile-home": "url('./assets/HomePageGraphic.png')",
-        "auth-image": "url('./assets/login-graphics.jpg')",
-      }),
+      backgroundImage: (theme) => ({}),
       fontFamily: {
-        dmsans: ["DM Sans", "sans-serif"],
-        montserrat: ["Montserrat", "sans-serif"],
+        dmsans: ["Poppins", "sans-serif"],
       },
-      content: {
-        evolvetext: "url('./assets/EvolveText.png')",
-        abstractwaves: "url('./assets/AbstractWaves.png')",
-        sparkles: "url('./assets/Sparkles.png')",
-        circles: "url('./assets/Circles.png')",
-      },
+      content: {},
     },
     screens: {
       xs: "480px",
