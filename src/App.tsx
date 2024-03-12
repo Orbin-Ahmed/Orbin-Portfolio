@@ -5,6 +5,7 @@ import Portfolio from "@/layouts/Portfolio";
 import { projectData } from "@/Data/data";
 import { useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Contact from "@/layouts/Contact";
 
 function App() {
   const [projectItem, setProjectItem] = useState(projectData);
@@ -32,6 +33,7 @@ function App() {
         filterProjectItem={filterProjectItem}
         setProjectItem={setProjectItem}
       />
+      <Contact />
     </>
   );
 }

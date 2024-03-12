@@ -14,6 +14,7 @@ module.exports = {
         "border-100": "#F5F5F5",
         "border-200": "#444444",
         "active-100": "#99BC85",
+        "form-border": "rgba(0, 0, 0, 0.3)",
       },
       backgroundImage: (theme) => ({}),
       fontFamily: {
