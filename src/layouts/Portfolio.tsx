@@ -1,16 +1,27 @@
+import { Project } from "@/Data/data";
 import Chips from "@/components/Chips";
 import HText from "@/components/HText";
 import ProjectCard from "@/components/ProjectCard";
 import { useState } from "react";
 import { projectData } from "@/Data/data";
 
-type ProfileProps = {};
+type ProfileProps = {
+  projectItemData: Project[];
+  filterProjectItem: (category: string) => void;
+  setProjectItem: React.Dispatch<React.SetStateAction<Project[]>>;
+};
 
-const Portfolio = ({}: ProfileProps) => {
+const Portfolio = ({
+  projectItemData,
+  filterProjectItem,
+  setProjectItem,
+}: ProfileProps) => {
   const [selectedChip, setSelectedChip] = useState("All");
 
   const handleChipClick = (chipTitle: string) => {
     setSelectedChip(chipTitle);
+    if (chipTitle === "All") setProjectItem(projectData);
+    else filterProjectItem(chipTitle);
   };
 
   return (
@@ -39,7 +50,7 @@ const Portfolio = ({}: ProfileProps) => {
 
         {/* Project Card Area */}
         <div className="grid ms:grid-cols-3 xm:grid-cols-2 grid-cols-1 mt-4 gap-4">
-          {projectData.map((value, index) => (
+          {projectItemData.map((value, index) => (
             <ProjectCard
               key={index}
               id={value.id}
@@ -48,6 +59,7 @@ const Portfolio = ({}: ProfileProps) => {
               demoLink={value.demoLink}
               codeLink={value.codeLink}
               details={value.details}
+              category={value.category}
             />
           ))}
         </div>

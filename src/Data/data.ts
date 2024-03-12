@@ -15,6 +15,7 @@ export interface Skill {
 export interface Project {
   id: number;
   title: string;
+  category: string;
   projectImg: string;
   demoLink?: string;
   codeLink: string;
@@ -53,6 +54,7 @@ export const projectData: Project[] = [
   {
     id: 1,
     title: "Make My Menu",
+    category: "Web",
     projectImg: makeMyMenuImg,
     demoLink: "https://makemymenu.io/",
     codeLink: "https://github.com/Orbin-Ahmed/makemymenu-frontend",
@@ -62,6 +64,7 @@ export const projectData: Project[] = [
   {
     id: 2,
     title: "Fitness Mania",
+    category: "Web",
     projectImg: fitnessMania,
     demoLink: "https://fitness-mania-phi.vercel.app/",
     codeLink: "https://github.com/Orbin-Ahmed/Fitness-Mania",
@@ -71,6 +74,7 @@ export const projectData: Project[] = [
   {
     id: 3,
     title: "News Portal",
+    category: "Web",
     projectImg: newsPortal,
     demoLink: "http://thedainik71arbangladesh.com/",
     codeLink: "https://github.com/Orbin-Ahmed/NewsPortal",
@@ -80,6 +84,7 @@ export const projectData: Project[] = [
   {
     id: 4,
     title: "Test Tube",
+    category: "Web",
     projectImg: testTube,
     codeLink: "https://github.com/Orbin-Ahmed/TestTube",
     details:
@@ -89,6 +94,7 @@ export const projectData: Project[] = [
     id: 5,
     title:
       "Health Risk Detection using Facial Expressions and Posture Analysis",
+    category: "Machine Learning",
     projectImg: facialExpression,
     demoLink: "https://ieeexplore.ieee.org/document/9873684",
     codeLink:
@@ -99,6 +105,7 @@ export const projectData: Project[] = [
   {
     id: 6,
     title: "Bengali Handwriting Character Classification",
+    category: "Machine Learning",
     projectImg: bengaliChraracter,
     codeLink: "https://github.com/Orbin-Ahmed/Bengali_Handwriting_Classifier",
     details:
@@ -107,6 +114,7 @@ export const projectData: Project[] = [
   {
     id: 7,
     title: "In-depth Analysis of RNA Sequences in the context of mouse species",
+    category: "Machine Learning",
     projectImg: mousePCA,
     codeLink: "https://github.com/Orbin-Ahmed/RNAseq_analysis",
     details:
@@ -115,6 +123,7 @@ export const projectData: Project[] = [
   {
     id: 8,
     title: "SVM and Linear Regression Models for Heart Disease Prediction",
+    category: "Machine Learning",
     projectImg: heartDataFreq,
     codeLink: "https://github.com/Orbin-Ahmed/Heart_Disease_Prediction",
     details:
