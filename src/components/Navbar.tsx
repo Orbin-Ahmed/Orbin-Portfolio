@@ -65,7 +65,7 @@ const Navbar = ({
                     href={`#${value}`}
                     className={`hover:text-primary-hover hover:underline hover:underline-offset-8 hover:decoration-primary-hover font-normal ${
                       selectedPage === value.toLowerCase()
-                        ? "text-primary-hover"
+                        ? "text-primary-100"
                         : "text-primary-100"
                     }`}
                     onClick={() => setSelectedPage(value.toLowerCase())}
@@ -109,7 +109,7 @@ const Navbar = ({
                   <a
                     className={`text-primary-100 hover:text-primary-hover font-normal text-xl ${
                       selectedPage === item.toLowerCase()
-                        ? "text-primary-hover"
+                        ? "text-primary-100"
                         : "text-primary-100"
                     }}`}
                     href={`#${item}`}

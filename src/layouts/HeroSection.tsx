@@ -4,6 +4,7 @@ import github from "@/assets/github.png";
 import linkedin from "@/assets/linkedin.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import CV from "@/assets/Orbin Ahmed Acanto(CV).pdf";
 
 type HeroSectionProps = {
   setSelectedPage: React.Dispatch<React.SetStateAction<string>>;
@@ -32,14 +33,18 @@ const HeroSection = ({ setSelectedPage }: HeroSectionProps) => {
           <p className="text-primary-200 text-xl font-bold md:text-2xl mb-4">
             Software Engineer
           </p>
-          <Button
-            text="Download CV"
-            className="bg-button-secondary hover:bg-button-primary"
-          />
-          <Button
-            text="Contact Me"
-            className="bg-button-primary hover:bg-button-primary-hover border-button-primary"
-          />
+          <a target="_blank" href={CV}>
+            <Button
+              text="View CV"
+              className="bg-button-secondary hover:bg-button-primary"
+            />
+          </a>
+          <a href="#Contact">
+            <Button
+              text="Contact Me"
+              className="bg-button-primary hover:bg-button-primary-hover border-button-primary"
+            />
+          </a>
           <div className="flex justify-center items-center mr-[-1rem]">
             <Link to="https://github.com/Orbin-ahmed" target="_blank">
               <img src={github} alt="GitHub" className="w-10 h-10 m-2 mt-0" />
