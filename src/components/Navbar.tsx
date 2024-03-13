@@ -2,16 +2,39 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { useEffect, useState } from "react";
 import logo from "@/assets/Logo.png";
 
-type NavbarProps = {};
+type NavbarProps = {
+  isTopOfPage: boolean;
+  selectedPage: string;
+  setSelectedPage: React.Dispatch<React.SetStateAction<string>>;
+};
 
-const Navbar = ({}: NavbarProps) => {
+const Navbar = ({
+  isTopOfPage,
+  selectedPage,
+  setSelectedPage,
+}: NavbarProps) => {
+  const navBackgroundStyles = isTopOfPage ? "" : "bg-white drop-shadow";
   const navItemList = ["About", "Experience", "Projects", "Contact"];
   const isAboveMediumScreen = useMediaQuery("(min-width: 1060px)");
+  const menu = document.querySelector(".menu-links");
+  const icon = document.querySelector(".hamburger-icon");
   const [isMenuToggle, setIsMenuToggle] = useState<boolean>(false);
 
   useEffect(() => {
-    const menu = document.querySelector(".menu-links");
-    const icon = document.querySelector(".hamburger-icon");
+    const handleScroll = () => {
+      if (isMenuToggle) {
+        setIsMenuToggle(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMenuToggle]);
+
+  useEffect(() => {
     if (isMenuToggle) {
       menu?.classList.add("open");
       icon?.classList.add("open");
@@ -26,13 +49,13 @@ const Navbar = ({}: NavbarProps) => {
       {isAboveMediumScreen && (
         <nav
           id="desktop-nav"
-          className="flex mr-10 ml-6 justify-between items-center"
+          className={`${navBackgroundStyles} fixed top-0 z-30 w-full flex px-6 justify-between items-center`}
         >
           {/* <div className="text-3xl text-primary-100 italic font-medium">
             Orbin Ahmed
           </div> */}
           <div>
-            <img src={logo} alt="Acanto" className="w-28 h-auto" />
+            <img src={logo} alt="Acanto" className="w-20 h-auto" />
           </div>
           <div>
             <ul className="flex gap-8 text-xl list-none">
@@ -40,7 +63,12 @@ const Navbar = ({}: NavbarProps) => {
                 <li key={i}>
                   <a
                     href={`#${value}`}
-                    className="text-primary-100 hover:text-primary-hover hover:underline hover:underline-offset-8 hover:decoration-primary-hover font-normal"
+                    className={`hover:text-primary-hover hover:underline hover:underline-offset-8 hover:decoration-primary-hover font-normal ${
+                      selectedPage === value.toLowerCase()
+                        ? "text-primary-hover"
+                        : "text-primary-100"
+                    }`}
+                    onClick={() => setSelectedPage(value.toLowerCase())}
                   >
                     {value}
                   </a>
@@ -54,7 +82,7 @@ const Navbar = ({}: NavbarProps) => {
       {!isAboveMediumScreen && (
         <nav
           id="hamburger-nav"
-          className="flex mx-10 my-4 justify-between items-center gap-4"
+          className={`${navBackgroundStyles} fixed top-0 z-30 w-full flex px-10 justify-between items-center gap-4`}
         >
           {/* <div className="sm:text-2xl text-xl text-primary-100 italic font-medium">
             Orbin Ahmed
@@ -71,13 +99,24 @@ const Navbar = ({}: NavbarProps) => {
               <span></span>
               <span></span>
             </div>
-            <div className="menu-links bg-transparent">
+            <div
+              className={`menu-links ${
+                isTopOfPage ? "bg-transparent" : "bg-white rounded"
+              }`}
+            >
               {navItemList.map((item, i) => (
                 <li key={i}>
                   <a
-                    className="text-primary-100 hover:text-primary-hover font-normal text-xl"
+                    className={`text-primary-100 hover:text-primary-hover font-normal text-xl ${
+                      selectedPage === item.toLowerCase()
+                        ? "text-primary-hover"
+                        : "text-primary-100"
+                    }}`}
                     href={`#${item}`}
-                    onClick={() => setIsMenuToggle(!isMenuToggle)}
+                    onClick={() => {
+                      setIsMenuToggle(!isMenuToggle);
+                      setSelectedPage(item.toLowerCase());
+                    }}
                   >
                     {item}
                   </a>

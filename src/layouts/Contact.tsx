@@ -6,10 +6,14 @@ import messengerIcon from "@/assets/messenger.png";
 import { useForm } from "react-hook-form";
 import Button from "@/components/Button";
 import { twMerge } from "tailwind-merge";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-type ContactProps = {};
+type ContactProps = {
+  setSelectedPage: React.Dispatch<React.SetStateAction<string>>;
+};
 
-function Contact({}: ContactProps) {
+function Contact({ setSelectedPage }: ContactProps) {
   const inputStyles = `mb-5 w-full rounded-lg bg-inherit border-2 border-form-border
   px-5 py-3 placeholder-primary-200 leading-tight shadow focus:outline-none focus:shadow-outline`;
 
@@ -27,8 +31,11 @@ function Contact({}: ContactProps) {
   };
 
   return (
-    <section>
-      <div className="flex items-center flex-col py-12 w-3/5 mx-auto">
+    <section id="Contact">
+      <motion.div
+        className="flex items-center flex-col py-12 w-3/5 mx-auto"
+        onViewportEnter={() => setSelectedPage("contact")}
+      >
         <HText subHeader="Get In Touch" header="Contact Me" />
         {/* Contact Me Area */}
         <div className="flex gap-8 ms:flex-row flex-col">
@@ -37,27 +44,42 @@ function Contact({}: ContactProps) {
             <p className="text-xl font-semibold mb-4 text-center">
               Contact Info
             </p>
-            <Card
-              icon={emailIcon}
-              header="Email"
-              subHeader="acantoahmed67@gmail.com"
-              title="Write me"
-              className="md:p-4 p-2 m-2"
-            />
-            <Card
-              icon={linkedinIcon}
-              header="LinkedIn"
-              subHeader="Orbin Ahmed Acanto"
-              title="Write me"
-              className="md:p-4 p-2 m-2"
-            />
-            <Card
-              icon={messengerIcon}
-              header="Messenger"
-              subHeader="acanto.ahmed.1"
-              title="Write me"
-              className="md:p-4 p-2 m-2"
-            />
+            <Link to={"mailto:acantoahmed67@gmail.com"}>
+              <Card
+                icon={emailIcon}
+                header="Email"
+                subHeader="acantoahmed67@gmail.com"
+                title="Write me"
+                className="md:p-4 p-2 m-2"
+                arrowRight={true}
+              />
+            </Link>
+            <Link
+              target="_blank"
+              to={"https://www.linkedin.com/in/orbin-ahmed-acanto/"}
+            >
+              <Card
+                icon={linkedinIcon}
+                header="LinkedIn"
+                subHeader="orbin-ahmed-acanto"
+                title="Write me"
+                className="md:p-4 p-2 m-2"
+                arrowRight={true}
+              />
+            </Link>
+            <Link
+              target="_blank"
+              to={"https://www.facebook.com/acanto.ahmed.1/"}
+            >
+              <Card
+                icon={messengerIcon}
+                header="Messenger"
+                subHeader="acanto.ahmed.1"
+                title="Write me"
+                className="md:p-4 p-2 m-2"
+                arrowRight={true}
+              />
+            </Link>
           </div>
           {/* Contact Info Area end */}
           {/* Form area started */}
@@ -130,7 +152,7 @@ function Contact({}: ContactProps) {
           </div>
         </div>
         {/* Contact Me Area */}
-      </div>
+      </motion.div>
     </section>
   );
 }

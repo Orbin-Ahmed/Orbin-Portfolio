@@ -3,13 +3,19 @@ import HText from "@/components/HText";
 import Diploma from "@/assets/diploma.png";
 import Education from "@/assets/university.png";
 import Brain from "@/assets/Brain.png";
+import { motion } from "framer-motion";
 
-type ProfileProps = {};
+type ProfileProps = {
+  setSelectedPage: React.Dispatch<React.SetStateAction<string>>;
+};
 
-const Profile = ({}: ProfileProps) => {
+const Profile = ({ setSelectedPage }: ProfileProps) => {
   return (
     <section id="About">
-      <div className="h-full w-4/5 mx-auto flex items-center flex-col">
+      <motion.div
+        className="h-full w-4/5 mx-auto flex items-center flex-col"
+        onViewportEnter={() => setSelectedPage("about")}
+      >
         <HText header="About Me" subHeader="Get To Know More" />
         <div className="flex justify-center items-center gap-8 md:flex-row flex-col">
           {/* illustration area */}
@@ -50,7 +56,7 @@ const Profile = ({}: ProfileProps) => {
           </div>
           {/* content area end */}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

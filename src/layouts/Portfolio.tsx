@@ -4,17 +4,20 @@ import HText from "@/components/HText";
 import ProjectCard from "@/components/ProjectCard";
 import { useState } from "react";
 import { projectData } from "@/Data/data";
+import { motion } from "framer-motion";
 
 type ProfileProps = {
   projectItemData: Project[];
   filterProjectItem: (category: string) => void;
   setProjectItem: React.Dispatch<React.SetStateAction<Project[]>>;
+  setSelectedPage: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Portfolio = ({
   projectItemData,
   filterProjectItem,
   setProjectItem,
+  setSelectedPage,
 }: ProfileProps) => {
   const [selectedChip, setSelectedChip] = useState("All");
 
@@ -26,7 +29,10 @@ const Portfolio = ({
 
   return (
     <section id="Projects">
-      <div className="mt-4 py-4 w-4/5 mx-auto">
+      <motion.div
+        className="mt-4 py-4 w-4/5 mx-auto"
+        onViewportEnter={() => setSelectedPage("projects")}
+      >
         <HText header="Portfolio" subHeader="My Diverse Range of Work" />
         {/* Chips Area */}
         <div className="flex items-center justify-center">
@@ -63,7 +69,7 @@ const Portfolio = ({
             />
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

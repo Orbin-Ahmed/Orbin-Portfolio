@@ -123,4 +123,5 @@ a,
   height: 5px;
   background: #779a67;
   transform-origin: 0%;
+  z-index: 31;
 }
