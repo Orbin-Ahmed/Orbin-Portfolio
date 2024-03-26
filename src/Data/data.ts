@@ -76,7 +76,6 @@ export const projectData: Project[] = [
     title: "News Portal",
     category: "Web",
     projectImg: newsPortal,
-    demoLink: "http://thedainik71arbangladesh.com/",
     codeLink: "https://github.com/Orbin-Ahmed/NewsPortal",
     details:
       "This project is an online news portal designed to provide users with a detailed and convenient platform to access local and global news.",
