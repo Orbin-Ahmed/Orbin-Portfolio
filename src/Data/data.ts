@@ -6,6 +6,7 @@ import facialExpression from "@/assets/facialExpression.png";
 import bengaliChraracter from "@/assets/bengaliChraracter.png";
 import mousePCA from "@/assets/mousePCA.png";
 import heartDataFreq from "@/assets/heartDataFreq.jpg";
+import carHub from "@/assets/car-hub.png";
 
 export interface Skill {
   name: string;
@@ -73,6 +74,16 @@ export const projectData: Project[] = [
   },
   {
     id: 3,
+    title: "Car Hub",
+    category: "Web",
+    projectImg: carHub,
+    demoLink: "https://car-hub-two-roan.vercel.app/",
+    codeLink: "https://github.com/Orbin-Ahmed/car-showcase",
+    details:
+      "Car Hub goes beyond just showcasing car details. It transforms into a comprehensive automotive hub, providing users with car information, comparisons and rent price.",
+  },
+  {
+    id: 4,
     title: "News Portal",
     category: "Web",
     projectImg: newsPortal,
@@ -81,7 +92,7 @@ export const projectData: Project[] = [
       "This project is an online news portal designed to provide users with a detailed and convenient platform to access local and global news.",
   },
   {
-    id: 4,
+    id: 5,
     title: "Test Tube",
     category: "Web",
     projectImg: testTube,
@@ -90,7 +101,7 @@ export const projectData: Project[] = [
       "This project is a React and TypeScript implementation of a YouTube-like website. It focuses on replicating the functionality of the YouTube homepage.",
   },
   {
-    id: 5,
+    id: 6,
     title:
       "Health Risk Detection using Facial Expressions and Posture Analysis",
     category: "Machine Learning",
@@ -102,7 +113,7 @@ export const projectData: Project[] = [
       "This project develops a machine learning system for identifying critical health situations in real-time by combining facial expression recognition and posture analysis.",
   },
   {
-    id: 6,
+    id: 7,
     title: "Bengali Handwriting Character Classification",
     category: "Machine Learning",
     projectImg: bengaliChraracter,
@@ -111,7 +122,7 @@ export const projectData: Project[] = [
       "This project tackles the challenge of recognizing handwritten Bengali characters using a Convolutional Neural Network (CNN) model.",
   },
   {
-    id: 7,
+    id: 8,
     title: "In-depth Analysis of RNA Sequences in the context of mouse species",
     category: "Machine Learning",
     projectImg: mousePCA,
@@ -120,7 +131,7 @@ export const projectData: Project[] = [
       "This project delves into the intricate world of RNA sequencing data analysis, specifically focusing on gene expression patterns in various mouse species.",
   },
   {
-    id: 8,
+    id: 9,
     title: "SVM and Linear Regression Models for Heart Disease Prediction",
     category: "Machine Learning",
     projectImg: heartDataFreq,
