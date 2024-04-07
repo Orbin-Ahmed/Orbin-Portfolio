@@ -33,7 +33,7 @@ export const webSkills: Skill[] = [
   { name: "Bootstrap", level: "Expert" },
   { name: "Tailwind", level: "Advanced" },
   { name: "Git", level: "Advanced" },
-  { name: "PostgreSQL", level: "Beginner" },
+  { name: "Express JS", level: "Intermediate" },
 ];
 
 export const machineLearningSkills: Skill[] = [
