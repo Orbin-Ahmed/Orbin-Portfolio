@@ -7,6 +7,7 @@ import bengaliChraracter from "@/assets/bengaliChraracter.png";
 import mousePCA from "@/assets/mousePCA.png";
 import heartDataFreq from "@/assets/heartDataFreq.jpg";
 import carHub from "@/assets/car-hub.png";
+import dreamEstate from "@/assets/dream-estate.png";
 
 export interface Skill {
   name: string;
@@ -50,7 +51,7 @@ export const machineLearningSkills: Skill[] = [
   { name: "Keras", level: "Intermediate" },
   { name: "Pandas", level: "Proficient" },
 ];
-
+// https://dream-estate-six.vercel.app/
 export const projectData: Project[] = [
   {
     id: 1,
@@ -84,6 +85,16 @@ export const projectData: Project[] = [
   },
   {
     id: 4,
+    title: "Dream Estate",
+    category: "Web",
+    projectImg: dreamEstate,
+    demoLink: "https://dream-estate-six.vercel.app/",
+    codeLink: "https://github.com/Orbin-Ahmed/Real-Estate-Frontend",
+    details:
+      "Find your dream home a breeze! Our user-friendly platform lets you rent or buy with ease. Browse listings, filter by needs, and find your perfect fit.",
+  },
+  {
+    id: 5,
     title: "News Portal",
     category: "Web",
     projectImg: newsPortal,
@@ -92,7 +103,7 @@ export const projectData: Project[] = [
       "This project is an online news portal designed to provide users with a detailed and convenient platform to access local and global news.",
   },
   {
-    id: 5,
+    id: 6,
     title: "Test Tube",
     category: "Web",
     projectImg: testTube,
@@ -101,7 +112,7 @@ export const projectData: Project[] = [
       "This project is a React and TypeScript implementation of a YouTube-like website. It focuses on replicating the functionality of the YouTube homepage.",
   },
   {
-    id: 6,
+    id: 7,
     title:
       "Health Risk Detection using Facial Expressions and Posture Analysis",
     category: "Machine Learning",
@@ -113,7 +124,7 @@ export const projectData: Project[] = [
       "This project develops a machine learning system for identifying critical health situations in real-time by combining facial expression recognition and posture analysis.",
   },
   {
-    id: 7,
+    id: 8,
     title: "Bengali Handwriting Character Classification",
     category: "Machine Learning",
     projectImg: bengaliChraracter,
@@ -122,7 +133,7 @@ export const projectData: Project[] = [
       "This project tackles the challenge of recognizing handwritten Bengali characters using a Convolutional Neural Network (CNN) model.",
   },
   {
-    id: 8,
+    id: 9,
     title: "In-depth Analysis of RNA Sequences in the context of mouse species",
     category: "Machine Learning",
     projectImg: mousePCA,
@@ -131,7 +142,7 @@ export const projectData: Project[] = [
       "This project delves into the intricate world of RNA sequencing data analysis, specifically focusing on gene expression patterns in various mouse species.",
   },
   {
-    id: 9,
+    id: 10,
     title: "SVM and Linear Regression Models for Heart Disease Prediction",
     category: "Machine Learning",
     projectImg: heartDataFreq,
