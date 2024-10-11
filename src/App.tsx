@@ -6,7 +6,7 @@ import { projectData } from "@/Data/data";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Contact from "@/layouts/Contact";
-import Footer from "./layouts/Footer";
+import Footer from "@/layouts/Footer";
 import Navbar from "@/components/Navbar";
 
 function App() {
