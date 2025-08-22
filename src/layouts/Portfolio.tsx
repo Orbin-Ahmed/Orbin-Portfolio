@@ -18,11 +18,6 @@ const containerVariants = {
   show: { opacity: 1, transition: { staggerChildren: 0.06 } },
 };
 
-// Consistent normalization function
-const normalizeString = (s: string): string => {
-  return s.trim().toLowerCase().replace(/\s+/g, " ");
-};
-
 const Portfolio = ({
   projectItemData,
   allProjects,

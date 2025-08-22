@@ -2,7 +2,6 @@ import Card from "@/components/Card";
 import HText from "@/components/HText";
 import Diploma from "@/assets/diploma.png";
 import Education from "@/assets/university.png";
-import Brain from "@/assets/Brain.png";
 import Me from "@/assets/me.png";
 import { motion } from "framer-motion";
 
