@@ -2,30 +2,52 @@ import { Project } from "@/Data/data";
 import Chips from "@/components/Chips";
 import HText from "@/components/HText";
 import ProjectCard from "@/components/ProjectCard";
-import { useState } from "react";
-import { projectData } from "@/Data/data";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 
-type ProfileProps = {
+type Props = {
   projectItemData: Project[];
-  filterProjectItem: (category: string) => void;
-  setProjectItem: React.Dispatch<React.SetStateAction<Project[]>>;
+  allProjects: Project[];
+  selectedCategory: string;
+  onSelectCategory: (category: string) => void;
   setSelectedPage: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.06 } },
+};
+
+// Consistent normalization function
+const normalizeString = (s: string): string => {
+  return s.trim().toLowerCase().replace(/\s+/g, " ");
 };
 
 const Portfolio = ({
   projectItemData,
-  filterProjectItem,
-  setProjectItem,
+  allProjects,
+  selectedCategory,
+  onSelectCategory,
   setSelectedPage,
-}: ProfileProps) => {
-  const [selectedChip, setSelectedChip] = useState("All");
+}: Props) => {
+  const categories = useMemo(() => {
+    const categorySet = new Set<string>();
 
-  const handleChipClick = (chipTitle: string) => {
-    setSelectedChip(chipTitle);
-    if (chipTitle === "All") setProjectItem(projectData);
-    else filterProjectItem(chipTitle);
-  };
+    allProjects.forEach((project) => {
+      const categories = Array.isArray(project.category)
+        ? project.category
+        : [project.category];
+
+      categories.forEach((cat) => {
+        // Store the original category name (not normalized)
+        categorySet.add(cat.trim());
+      });
+    });
+
+    const sortedCategories = Array.from(categorySet).sort();
+
+    return ["All", ...sortedCategories];
+  }, [allProjects]);
 
   return (
     <section id="Projects">
@@ -33,42 +55,52 @@ const Portfolio = ({
         className="mt-4 py-4 w-4/5 mx-auto"
         onViewportEnter={() => setSelectedPage("projects")}
       >
-        <HText header="Portfolio" subHeader="My Diverse Range of Work" />
-        {/* Chips Area */}
-        <div className="flex items-center justify-center">
-          <Chips
-            title="All"
-            active={selectedChip === "All"}
-            onClick={() => handleChipClick("All")}
-          />
-          <Chips
-            title="Web"
-            active={selectedChip === "Web"}
-            onClick={() => handleChipClick("Web")}
-          />
-          <Chips
-            title="Machine Learning"
-            active={selectedChip === "Machine Learning"}
-            onClick={() => handleChipClick("Machine Learning")}
-          />
-        </div>
-        {/* Chips Area end*/}
+        <HText header="Portfolio" subHeader="Selected Work & Experiments" />
 
-        {/* Project Card Area */}
-        <div className="grid ms:grid-cols-3 xm:grid-cols-2 grid-cols-1 mt-4 gap-4">
-          {projectItemData.map((value, index) => (
-            <ProjectCard
-              key={index}
-              id={value.id}
-              title={value.title}
-              projectImg={value.projectImg}
-              demoLink={value.demoLink}
-              codeLink={value.codeLink}
-              details={value.details}
-              category={value.category}
+        {/* Chips */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-2">
+          {categories.map((category) => (
+            <Chips
+              key={category}
+              title={category}
+              active={selectedCategory === category}
+              onClick={() => {
+                onSelectCategory(category);
+              }}
             />
           ))}
         </div>
+
+        {/* Cards */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {projectItemData.length > 0 ? (
+            projectItemData.map((project) => (
+              <ProjectCard
+                key={project.id}
+                id={project.id}
+                title={project.title}
+                projectImg={project.projectImg}
+                demoLink={project.demoLink}
+                codeLink={project.codeLink}
+                details={project.details}
+                category={project.category}
+                stack={project.stack}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-8">
+              <p className="text-primary-200">
+                No projects found for "{selectedCategory}" category.
+              </p>
+            </div>
+          )}
+        </motion.div>
       </motion.div>
     </section>
   );

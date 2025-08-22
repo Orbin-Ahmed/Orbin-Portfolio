@@ -1,6 +1,11 @@
 import ExpertiseCard from "@/components/ExpertiseCard";
 import HText from "@/components/HText";
-import { webSkills, machineLearningSkills } from "@/Data/data";
+import {
+  fullStackSkills,
+  aiLlmsSkills,
+  cloudDevOpsSkills,
+  dataDbSkills,
+} from "@/Data/data";
 import { motion } from "framer-motion";
 
 type ExpertiseProps = {
@@ -15,12 +20,58 @@ function Expertise({ setSelectedPage }: ExpertiseProps) {
         onViewportEnter={() => setSelectedPage("experience")}
       >
         <HText header="Expertise" subHeader="Ready to Help With" />
-        <div className="flex justify-center items-center gap-8 w-full ms:flex-row flex-col">
-          <ExpertiseCard header="Web Development" skills={webSkills} />
-          <ExpertiseCard
-            header="Machine Learning"
-            skills={machineLearningSkills}
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 w-full mt-6">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
+            <ExpertiseCard
+              header="Full-Stack"
+              subHeader="React • Next.js • Django/FastAPI"
+              skills={fullStackSkills}
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+          >
+            <ExpertiseCard
+              header="AI/ML & LLMs"
+              subHeader="PyTorch • Transformers • RAG"
+              skills={aiLlmsSkills}
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            <ExpertiseCard
+              header="Cloud & DevOps"
+              subHeader="AWS • Docker • Terraform • CI/CD"
+              skills={cloudDevOpsSkills}
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.15 }}
+          >
+            <ExpertiseCard
+              header="Data & Databases"
+              subHeader="PostgreSQL • SQL • Vector DBs"
+              skills={dataDbSkills}
+            />
+          </motion.div>
         </div>
       </motion.div>
     </section>

@@ -1,22 +1,23 @@
 type ChipsProps = {
   title: string;
   active: boolean;
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: () => void;
 };
 
-const Chips = ({ title, active, onClick }: ChipsProps) => {
-  return (
-    <div
-      className={`relative grid select-none items-center whitespace-nowrap rounded-lg py-1.5 px-3 text-xs font-bold m-1 cursor-pointer transition-all duration-300 ${
+const Chips = ({ title, active, onClick }: ChipsProps) => (
+  <button
+    type="button"
+    aria-pressed={active}
+    onClick={onClick}
+    className={`relative inline-flex select-none items-center whitespace-nowrap rounded-full py-1.5 px-4 text-xs font-semibold transition-all
+      ${
         active
-          ? "bg-button-primary text-white"
-          : "bg-primary-200/10 text-primary-100"
+          ? "bg-button-primary text-white shadow-sm"
+          : "bg-primary-200/10 text-primary-100 hover:bg-primary-200/20"
       }`}
-      onClick={onClick}
-    >
-      <span className="">{title}</span>
-    </div>
-  );
-};
+  >
+    {title}
+  </button>
+);
 
 export default Chips;

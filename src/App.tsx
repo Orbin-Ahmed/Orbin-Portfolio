@@ -2,29 +2,35 @@ import HeroSection from "@/layouts/HeroSection";
 import Profile from "@/layouts/Profile";
 import Expertise from "@/layouts/Expertise";
 import Portfolio from "@/layouts/Portfolio";
-import { projectData } from "@/Data/data";
-import { useEffect, useState } from "react";
+import { projectData, Project } from "@/Data/data";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Contact from "@/layouts/Contact";
 import Navbar from "@/components/Navbar";
 import Footer from "@/layouts/footer";
 
+const categoriesMatch = (cat1: string, cat2: string): boolean => {
+  return cat1.trim() === cat2.trim();
+};
+
 function App() {
-  const [projectItem, setProjectItem] = useState(projectData);
+  const allProjectsRef = useRef<Project[]>(projectData);
+
   const { scrollYProgress } = useScroll();
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
   const [selectedPage, setSelectedPage] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [renderKey, setRenderKey] = useState<number>(0);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    setRenderKey((prev) => prev + 1);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setIsTopOfPage(true);
-      } else setIsTopOfPage(false);
-    };
+    const handleScroll = () => setIsTopOfPage(window.scrollY === 0);
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scaleX = useSpring(scrollYProgress, {
@@ -33,12 +39,24 @@ function App() {
     restDelta: 0.001,
   });
 
-  const filterProjectItem = (category: string) => {
-    const newProjectItem = projectData.filter(
-      (newValue) => newValue.category === category
-    );
-    setProjectItem(newProjectItem);
-  };
+  const filteredProjects = useMemo(() => {
+    if (selectedCategory === "All") {
+      return allProjectsRef.current;
+    }
+
+    const filtered = allProjectsRef.current.filter((project) => {
+      const categories = Array.isArray(project.category)
+        ? project.category
+        : [project.category];
+
+      const hasMatch = categories.some((cat) => {
+        const match = categoriesMatch(cat, selectedCategory);
+        return match;
+      });
+      return hasMatch;
+    });
+    return filtered;
+  }, [selectedCategory]);
 
   return (
     <>
@@ -52,10 +70,12 @@ function App() {
       <Profile setSelectedPage={setSelectedPage} />
       <Expertise setSelectedPage={setSelectedPage} />
       <Portfolio
-        projectItemData={projectItem}
-        filterProjectItem={filterProjectItem}
-        setProjectItem={setProjectItem}
+        key={renderKey}
+        projectItemData={filteredProjects}
         setSelectedPage={setSelectedPage}
+        onSelectCategory={handleCategoryChange}
+        allProjects={allProjectsRef.current}
+        selectedCategory={selectedCategory}
       />
       <Contact setSelectedPage={setSelectedPage} />
       <Footer />
