@@ -12,51 +12,86 @@ type HeroSectionProps = {
 
 const HeroSection = ({ setSelectedPage }: HeroSectionProps) => {
   return (
-    <section>
-      {/* Image and Intro section */}
+    <section className="relative overflow-hidden bg-gray-50">
       <motion.div
-        className="flex flex-col justify-center items-center h-screen w-full gap-8 md:mt-8 sm:mt-0 sm:flex-row"
+        className="relative mx-auto flex min-h-[90vh] w-full max-w-5xl flex-col items-center justify-center gap-10 px-6 py-16 md:flex-row md:gap-14"
         onViewportEnter={() => setSelectedPage("")}
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        {/* Image */}
-        <div>
-          <img src={myImage} className="w-auto h-52 md:h-80" />
-        </div>
-        {/* Intro Content */}
-        <div className="text-center">
-          <p className="text-primary-200 text-base md:text-lg mb-4">
-            Hello, I'm
-          </p>
-          <p className="text-primary-100 text-2xl md:text-3xl font-bold mb-4">
+        <motion.div
+          className="shrink-0"
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+        >
+          <div className="relative">
+            <div className="absolute -inset-2 rounded-full" />
+            <img
+              src={myImage}
+              alt="Orbin Ahmed Acanto"
+              className="relative h-56 w-56 rounded-full object-cover shadow-lg md:h-80 md:w-80"
+            />
+          </div>
+        </motion.div>
+
+        <div className="w-full text-center md:text-left">
+          <p className="text-primary-200 text-sm md:text-base">Hello, I'm</p>
+
+          <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-primary-100 md:text-5xl">
             Orbin Ahmed Acanto
+          </h1>
+
+          <p className="mt-3 text-base font-semibold text-primary-200 md:text-lg">
+            Full-Stack Developer • AI Engineer • Biomedical Informatics
           </p>
-          <p className="text-primary-200 text-xl font-bold md:text-2xl mb-4">
-            Software Engineer
+
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-primary-200 md:mx-0 md:text-base md:leading-7">
+            I build modern web applications and AI-powered systems with clean
+            UI, scalable architecture, and production-ready engineering.
           </p>
-          <a target="_blank" href={CV}>
-            <Button
-              text="View CV"
-              className="bg-button-secondary hover:bg-button-primary"
-            />
-          </a>
-          <a href="#Contact">
-            <Button
-              text="Contact Me"
-              className="bg-button-primary hover:bg-button-primary-hover border-button-primary"
-            />
-          </a>
-          <div className="flex justify-center items-center mr-[-1rem]">
-            <Link to="https://github.com/Orbin-ahmed" target="_blank">
-              <img src={github} alt="GitHub" className="w-10 h-10 m-2 mt-0" />
+
+          <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row md:items-start md:justify-start justify-center">
+            <a target="_blank" rel="noreferrer" href={CV}>
+              <Button
+                text="View CV"
+                className="w-full sm:w-auto bg-button-primary hover:bg-button-primary transition-colors rounded-xl"
+              />
+            </a>
+
+            <a href="#Contact">
+              <Button
+                text="Contact Me"
+                className="w-full sm:w-auto bg-button-secondary hover:bg-button-primary-hover  transition-colors rounded-xl"
+              />
+            </a>
+          </div>
+
+          <div className="mt-6 flex items-center justify-center gap-3 md:justify-start md:ml-4">
+            <Link
+              to="https://github.com/Orbin-Ahmed"
+              target="_blank"
+              className="group rounded-xl border border-white/10 bg-white/5 p-2 shadow-sm transition hover:bg-white/10"
+              aria-label="GitHub"
+            >
+              <img
+                src={github}
+                alt="GitHub"
+                className="h-8 w-8 opacity-90 transition group-hover:opacity-100"
+              />
             </Link>
+
             <Link
               to="https://www.linkedin.com/in/orbin-ahmed-acanto/"
               target="_blank"
+              className="group rounded-xl border border-white/10 bg-white/5 p-2 shadow-sm transition hover:bg-white/10"
+              aria-label="LinkedIn"
             >
               <img
                 src={linkedin}
-                alt="Linkedin"
-                className="w-10 h-10 m-2 mt-0"
+                alt="LinkedIn"
+                className="h-8 w-8 opacity-90 transition group-hover:opacity-100"
               />
             </Link>
           </div>

@@ -11,14 +11,13 @@ type ProfileProps = {
 
 const Profile = ({ setSelectedPage }: ProfileProps) => {
   return (
-    <section id="About">
+    <section id="About" className="bg-white">
       <motion.div
         className="h-full w-4/5 mx-auto flex items-center flex-col"
         onViewportEnter={() => setSelectedPage("about")}
       >
         <HText header="About Me" subHeader="Get To Know More" />
         <div className="flex justify-center items-center gap-8 md:flex-row flex-col">
-          {/* illustration area */}
           <div className="basis-1/3 pb-0">
             <img
               src={Me}
@@ -27,14 +26,13 @@ const Profile = ({ setSelectedPage }: ProfileProps) => {
             />
           </div>
 
-          {/* content area */}
           <div className="basis-2/3">
             <div className="flex justify-center flex-col">
               <div className="flex flex-wrap gap-4 sm:flex-row flex-col">
                 <Card
                   icon={Diploma}
                   header="Experience"
-                  subHeader="3+ Years"
+                  subHeader="5+ Years"
                   title="Full-Stack Engineer (AI/ML)"
                 />
                 <Card
@@ -46,27 +44,21 @@ const Profile = ({ setSelectedPage }: ProfileProps) => {
               </div>
 
               <div>
-                <p className="text-primary-200 text-sm md:text-base text-justify mt-8">
-                  I’m Orbin Ahmed Acanto, a full-stack software engineer
-                  (Python/TypeScript) specializing in AI/ML integration and
-                  workflow automation. I build modern web apps with
-                  React/Next.js, Django/DRF &amp; FastAPI, and ship to AWS (EC2,
-                  S3, RDS, CloudFront, ECS) using Docker, Terraform, PostgreSQL,
-                  and CI/CD.
-                  <br />
-                  <br />
-                  Recent work includes a clinical knowledge RAG and benchmarking
-                  at Memorial Sloan Kettering, DNABERT and pathology pipelines
-                  at Stony Brook University, an AI-powered 3D design system and
-                  business automations at Ideal Home UAE, and production
-                  React/Django platforms at Increments Inc. I care about clean,
-                  maintainable code, measurable impact, and delightful developer
-                  experience.
+                <p className="text-primary-200 text-lg md:text-xl text-justify mt-8">
+                  Full-Stack Software Engineer specializing in AI/ML integration
+                  and business process automation with 5+ years developing
+                  production applications across healthcare, real estate, and
+                  enterprise sectors. Completed MSc in Biomedical Informatics at
+                  Stony Brook University with hands-on research experience in
+                  transformer models (Stable Diffusion, BERT) and computer
+                  vision application. Expert in Next JS, React JS, Django,
+                  Python, JavaScript/typescript, AWS cloud architecture, agentic
+                  AI workflows (N8N/LangChain), RAG, LLMs and modern ML
+                  frameworks.
                 </p>
               </div>
             </div>
           </div>
-          {/* content area end */}
         </div>
       </motion.div>
     </section>

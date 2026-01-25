@@ -8,6 +8,8 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import Contact from "@/layouts/Contact";
 import Navbar from "@/components/Navbar";
 import Footer from "@/layouts/footer";
+import Experience from "./layouts/Experience";
+import Publications from "./layouts/Publications";
 
 const categoriesMatch = (cat1: string, cat2: string): boolean => {
   return cat1.trim() === cat2.trim();
@@ -68,7 +70,9 @@ function App() {
       />
       <HeroSection setSelectedPage={setSelectedPage} />
       <Profile setSelectedPage={setSelectedPage} />
+      <Experience setSelectedPage={setSelectedPage} />
       <Expertise setSelectedPage={setSelectedPage} />
+      <Publications setSelectedPage={setSelectedPage} />
       <Portfolio
         key={renderKey}
         projectItemData={filteredProjects}
@@ -77,6 +81,7 @@ function App() {
         allProjects={allProjectsRef.current}
         selectedCategory={selectedCategory}
       />
+
       <Contact setSelectedPage={setSelectedPage} />
       <Footer />
     </>

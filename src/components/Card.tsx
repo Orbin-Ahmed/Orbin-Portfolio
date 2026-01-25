@@ -21,46 +21,49 @@ const Card = ({
   return (
     <div
       className={twMerge(
-        "flex-1 border border-border-100 bg-white rounded-2xl md:p-8 p-4 text-center",
-        className
+        "flex-1 border border-border-100 bg-white rounded-2xl md:p-8 p-5 text-center",
+        className,
       )}
     >
-      <div className="flex justify-center">
-        <img src={icon} alt="icon" className="w-12 h-auto" />
+      <div className="flex justify-center mb-2">
+        <img src={icon} alt="icon" className="w-16 h-auto" />
       </div>
+
       <p
         className={
           className
-            ? "font-medium text-base md:text-lg"
-            : "font-bold text-xl md:text-2xl"
+            ? "font-medium text-lg md:text-xl"
+            : "font-bold text-2xl md:text-3xl"
         }
       >
         {header}
       </p>
+
       <p
         className={
           className
-            ? "text-sm md:text-base text-primary-200 mt-1"
-            : "text-base md:text-lg text-primary-200 mt-1"
+            ? "text-base md:text-lg text-primary-200 mt-1"
+            : "text-lg md:text-xl text-primary-200 mt-1"
         }
       >
         {subHeader}
       </p>
-      <div className="flex items-center justify-center">
+
+      <div className="flex items-center justify-center mt-1">
         <p
           className={
             className
-              ? "text-xs md:text-sm text-primary-200 mt-1"
-              : "text-base md:text-lg text-primary-200 mt-1"
+              ? "text-sm md:text-base text-primary-200"
+              : "text-base md:text-lg text-primary-200"
           }
         >
           {title}
         </p>
         {arrowRight ? (
-          <p className="mt-1 ml-1">
-            <ArrowLongRightIcon className="w-4 h-auto" />
-          </p>
-        ) : undefined}
+          <span className="ml-1 mt-0.5">
+            <ArrowLongRightIcon className="w-5 h-auto" />
+          </span>
+        ) : null}
       </div>
     </div>
   );

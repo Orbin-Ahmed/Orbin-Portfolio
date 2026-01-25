@@ -2,9 +2,11 @@ import ExpertiseCard from "@/components/ExpertiseCard";
 import HText from "@/components/HText";
 import {
   fullStackSkills,
-  aiLlmsSkills,
+  aiMlSkills,
   cloudDevOpsSkills,
-  dataDbSkills,
+  dataToolsSkills,
+  automationSkills,
+  biomedicalSkills,
 } from "@/Data/data";
 import { motion } from "framer-motion";
 
@@ -14,13 +16,15 @@ type ExpertiseProps = {
 
 function Expertise({ setSelectedPage }: ExpertiseProps) {
   return (
-    <section id="Experience">
+    <section id="Expertise" className="bg-white">
       <motion.div
         className="flex items-center flex-col py-12 w-4/5 mx-auto"
         onViewportEnter={() => setSelectedPage("experience")}
       >
-        <HText header="Expertise" subHeader="Ready to Help With" />
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 w-full mt-6">
+        <HText header="Expertise" subHeader="Technical Stack & Capabilities" />
+
+        {/* Grid: 3 columns on desktop, 2 on tablet, 1 on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full mt-6">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -28,9 +32,9 @@ function Expertise({ setSelectedPage }: ExpertiseProps) {
             transition={{ duration: 0.4 }}
           >
             <ExpertiseCard
-              header="Full-Stack"
-              subHeader="React • Next.js • Django/FastAPI"
-              skills={fullStackSkills}
+              header="AI & Machine Learning"
+              icon="🧠"
+              skills={aiMlSkills}
             />
           </motion.div>
 
@@ -41,9 +45,9 @@ function Expertise({ setSelectedPage }: ExpertiseProps) {
             transition={{ duration: 0.4, delay: 0.05 }}
           >
             <ExpertiseCard
-              header="AI/ML & LLMs"
-              subHeader="PyTorch • Transformers • RAG"
-              skills={aiLlmsSkills}
+              header="Full-Stack Development"
+              icon="💻"
+              skills={fullStackSkills}
             />
           </motion.div>
 
@@ -55,7 +59,7 @@ function Expertise({ setSelectedPage }: ExpertiseProps) {
           >
             <ExpertiseCard
               header="Cloud & DevOps"
-              subHeader="AWS • Docker • Terraform • CI/CD"
+              icon="☁️"
               skills={cloudDevOpsSkills}
             />
           </motion.div>
@@ -67,9 +71,35 @@ function Expertise({ setSelectedPage }: ExpertiseProps) {
             transition={{ duration: 0.4, delay: 0.15 }}
           >
             <ExpertiseCard
-              header="Data & Databases"
-              subHeader="PostgreSQL • SQL • Vector DBs"
-              skills={dataDbSkills}
+              header="Automation & Integration"
+              icon="⚡"
+              skills={automationSkills}
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            <ExpertiseCard
+              header="Data & Analytics"
+              icon="📊"
+              skills={dataToolsSkills}
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.25 }}
+          >
+            <ExpertiseCard
+              header="Biomedical Informatics"
+              icon="🔬"
+              skills={biomedicalSkills}
             />
           </motion.div>
         </div>

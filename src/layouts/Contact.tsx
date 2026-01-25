@@ -31,7 +31,7 @@ function Contact({ setSelectedPage }: ContactProps) {
   };
 
   return (
-    <section id="Contact">
+    <section id="Contact" className="bg-gray-50">
       <motion.div
         className="flex items-center flex-col py-12 w-3/5 mx-auto"
         onViewportEnter={() => setSelectedPage("contact")}

@@ -1,44 +1,33 @@
-import ApprovalIcon from "@/assets/approval.png";
-import { Skill } from "@/Data/data";
-
 type ExpertiseCardProps = {
   header: string;
-  skills: Skill[];
-  subHeader?: string;
+  skills: string[];
+  icon?: string;
 };
 
-const ExpertiseCard = ({ header, skills, subHeader }: ExpertiseCardProps) => {
+const ExpertiseCard = ({ header, skills, icon }: ExpertiseCardProps) => {
   return (
     <div
       className="flex flex-col border border-border-100 bg-white/70 backdrop-blur
-      rounded-2xl p-4 text-left w-full shadow-sm hover:shadow-md transition-shadow"
+      rounded-2xl p-5 text-left w-full shadow-sm hover:shadow-lg hover:border-primary-200/30 
+      transition-all duration-300 h-full"
     >
-      <div className="mb-4">
-        <p className="text-xl font-semibold text-primary-200">{header}</p>
-        {subHeader && (
-          <p className="text-sm text-primary-200/80 mt-1">{subHeader}</p>
-        )}
+      <div className="flex items-center gap-3 mb-4 pb-3 border-b border-border-100">
+        {icon && <span className="text-3xl">{icon}</span>}
+        <h3 className="text-lg font-semibold text-primary-200">{header}</h3>
       </div>
 
-      {/* Skills grid */}
-      <div className="grid grid-cols-1 gap-2">
-        {skills.map((s, idx) => (
-          <div
+      <div className="flex flex-wrap gap-2">
+        {skills.map((skill, idx) => (
+          <span
             key={idx}
-            className="flex items-center justify-between rounded-xl border border-border-100
-            bg-white px-3 py-2"
+            className="inline-flex items-center px-3 py-1.5 rounded-lg
+            bg-gradient-to-r from-primary-200/5 to-primary-200/10
+            border border-primary-200/20 text-primary-200/90
+            text-xs font-medium hover:border-primary-200/40 hover:shadow-sm
+            transition-all duration-200 cursor-default"
           >
-            <div className="flex items-center gap-2">
-              <img src={ApprovalIcon} alt="Icon" className="w-5 h-5" />
-              <span className="font-medium text-sm md:text-base">{s.name}</span>
-            </div>
-            <span
-              className="text-[10px] md:text-xs text-primary-200 border border-primary-200/30
-              rounded-full px-2 py-0.5 uppercase tracking-wide"
-            >
-              {s.level}
-            </span>
-          </div>
+            {skill}
+          </span>
         ))}
       </div>
     </div>
